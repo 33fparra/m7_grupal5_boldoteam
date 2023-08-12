@@ -1,7 +1,9 @@
-import { Sequelize, DataTypes } from 'sequelize';
+import { Sequelize, DataTypes } from "sequelize";
+//Hay que dar los datos de la conexion
+//hay dos o tres formas para crear la conexion
+const sequelize = new Sequelize("grupal5", "postgres", "pipe1234", {host:"localhost", dialect: "postgres"})
 
-const sequelize = new Sequelize('postgres://user:pass@localhost:5432/dbname');
-
+//aca creamos tablas
 const Medico = sequelize.define('Medico', {
   nombre: DataTypes.STRING,
   rut: DataTypes.STRING,
@@ -32,12 +34,15 @@ const Licencia = sequelize.define('Licencia', {
   fechaTermino: DataTypes.DATE,
 });
 
-// Definir las relaciones
-Medico.belongsTo(Especialidad);
-Medico.hasMany(Consulta);
-Consulta.belongsTo(Paciente);
-Medico.hasMany(Licencia);
-Licencia.belongsTo(Paciente);
+// Definir las relaciones aca debemos dejarlo mas claro
+Medico.belongsTo(Especialidad); // es una a una Bien   pertenece a 
+Medico.hasMany(Consulta);  // una a muchas Bien        tiene muchas 
+Consulta.belongsTo(Paciente);  // una es a una Bien    pertenece a  
+Medico.hasMany(Licencia);  // uno a muchos Bien        tiene muchas 
+Licencia.belongsTo(Paciente); // uno a uno Bien        pertenece a
+
+// Entidad1.hasOne(Entidad2);   has one
+
 
 // Sincronizar los modelos con la base de datos
 sequelize.sync();
