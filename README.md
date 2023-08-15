@@ -1,22 +1,22 @@
 <img src="public/images/boldoMedio.png" align="right" />
- <h1 align= left ><b>Grupal 4 M7 /EquipoBoldo</b> <img src = "https://media.giphy.com/media/gF2m2JOyGReppog8hU/giphy.gif" width = 80px></h1>
+ <h1 align= left ><b>Grupal 5 M7 /EquipoBoldo</b> <img src = "https://media.giphy.com/media/gF2m2JOyGReppog8hU/giphy.gif" width = 80px></h1>
 
 <br>
 
 <h2><b>Descripción del Proyecto</b> <img src = " https://media.giphy.com/media/GjhqaB166nKR4BoEnh/giphy.gif" width = 50px></h2>
 
-📝 La escuela de música Always Music solicitó hacer unas pruebas con el avance del desarrollo del sistema de gestión
-con base de datos, se dieron cuenta que no se podían hacer varias consultas de forma simultánea y que, al
-intentar hacer una consulta errónea, no recibían ningún error, dejando la posibilidad de creer que un estudiante
-fue registrado y que esto no sea así.
-En este desafío deberás ocupar la clase Pool definiendo sus diferentes propiedades, capturar los posibles errores
-en el proceso de conexión con la base de datos y realizar las siguientes consultas, usando textos parametrizados y
-Prepared Statement:
- Agregar un nuevo estudiante.
- Consultar los estudiantes registrados.
- Consultar estudiante por rut.
- Actualizar la información de un estudiante.
- Eliminar el registro de un estudiante.
+📝 En elsiguiente problema se debe entregar como resultado el modelo lógico y físico del caso presentado a
+continuación utilizando ORM según el siguiente planteamiento.
+Una clínica requiere que generemos el modelo de su lógica de negocio de acuerdo a los siguientes requerimientos:
+1. Un médico tiene una especialidad.
+2. El médico tiene un nombre, rut y dirección.
+3. La especialidad tiene un código y una descripción.
+4. El médico realiza consultas a distintos pacientes.
+5. Un paciente agenda una o muchas consultas.
+6. La consulta tiene una fecha, hora de atención y número de box (consultorio).
+7. El paciente tiene un nombre, rut y dirección.
+8. Un médico puede o no entregar una licencia a un paciente.
+9. La licencia tiene un código, un diagnóstico, una fecha de inicio y una fecha de término.
 
 
 <br>
@@ -32,9 +32,7 @@ Prepared Statement:
    npm install
 
 4. Abrir el archivo html ingresando al https://localhost:3000
-5. Para Insertar colocar en la consola: node index.js nuevo 07 'Loreto7' '666666-7' '7' '7'
-6. Para Editar colocar en la consola: node index.js editar 6 'LoretoGodoy' '666666-6' '3' '3'
-7. Para Consultar colocar en la consola: node index.js consulta
+
 
 
 <br>
@@ -69,8 +67,12 @@ Prepared Statement:
     "author": "",
     "license": "ISC",
     "dependencies": {
+    "commander": "^11.0.0",
     "express": "^4.18.2",
-    "pg": "^8.11.2"
+    "pg": "^8.11.2",
+    "pg-cursor": "^2.10.2",
+    "pg-hstore": "^2.3.4",
+    "sequelize": "^6.32.1"
     }
     ````
 
@@ -79,18 +81,9 @@ Prepared Statement:
 
 ## Funcionalidades :sparkles:
 
-✨ Con nuestra aplicacion puedes:
+✨ Con nuestra aplicacion con ORM podremos visualizar el siguiente diseño:
 
-1. Realizar la conexión con Base de Datos, utilizando la clase Pool y definiendo un máximo de 20
-clientes, 5 segundos como tiempo máximo de inactividad de un cliente y 2 segundos de espera de un
-nuevo cliente.
-2. Hacer todas las consultas con un JSON como argumento definiendo la propiedad name para el Prepared
-Statement.
-3. Hacer las consultas con texto parametrizado.
-4. Liberar a un cliente al concluir su consulta.
-5. Capturar los posibles errores en todas las consultas.
-6. Retornar por consola un mensaje de error en caso de haber problemas de conexión.
-7. Obtener el registro de los estudiantes registrados en formato de arreglos.
+<img src="public/images/modelo1.jpg"/>
 
 
 <!-- ![Foto de grupo](public/images/grupoVerde.jpg) -->
